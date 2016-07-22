@@ -28,6 +28,10 @@
  *  滑块
  */
 @property(nonatomic,strong)UIButton *sliderBtn;
+/**
+ *  模糊点击区域按钮
+ */
+@property(nonatomic,strong)UIButton *expandBtn;
 
 @end
 
@@ -36,10 +40,10 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 50)];
     if (self) {
         _value = 0;
-        _widthSameHeight = 30;
+        _widthSameHeight = 25;
         [self setSlierUI];
     }
     return self;
@@ -66,7 +70,7 @@
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapMoving:)];
     [_preSliderView addGestureRecognizer:tapGes];
     
-
+    
     _sliderBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _sliderBtn.frame = CGRectMake(0, 0, _widthSameHeight, _widthSameHeight);
     _sliderBtn.center = CGPointMake(0, _baseView.center.y);
@@ -80,11 +84,17 @@
     {
         [_sliderBtn setImage:_slImage forState:UIControlStateNormal];
     }
+    _sliderBtn.userInteractionEnabled = YES;
     _sliderBtn.layer.cornerRadius = _widthSameHeight / 2;
-
+    
     [_sliderBtn addTarget:self action:@selector(dragMoving:withEvent:)forControlEvents: UIControlEventTouchDragInside];
     [_baseView addSubview:_sliderBtn];
-
+    
+    _expandBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    _expandBtn.frame = CGRectMake(0, 0, _widthSameHeight * 2, _widthSameHeight * 2);
+    _expandBtn.center = _sliderBtn.center;
+    [_expandBtn addTarget:self action:@selector(dragMoving:withEvent:)forControlEvents: UIControlEventTouchDragInside];
+    [_baseView addSubview:_expandBtn];
     
     
     
@@ -95,14 +105,14 @@
     _sliderBtn.center = CGPointMake(point.x , _baseView.center.y);
     _lastSliderView.frame = CGRectMake(0, 0, point.x, 20);
     _value = point.x / _preSliderView.bounds.size.width;
-
+    
 }
 - (void)dragMoving: (UIButton *)btn withEvent:(UIEvent *)event
 {
     CGPoint point = [[[event allTouches] anyObject] locationInView:self];
     
     CGFloat x = point.x;
-
+    
     if(x<=0)
         
     {
@@ -121,9 +131,13 @@
     
     
     btn.center = point;
+    
     _lastSliderView.frame = CGRectMake(0, 0, point.x, 20);
     _value = point.x / _preSliderView.bounds.size.width;
-
+    
+    _sliderBtn.center = point;
+    _expandBtn.center = _sliderBtn.center;
+    
 }
 
 
@@ -132,6 +146,7 @@
     _value = value;
     _sliderBtn.center = CGPointMake(_value * _baseView.bounds.size.width , _baseView.center.y);
     _lastSliderView.frame = CGRectMake(0, 0, _sliderBtn.center.x, 20);
+    
 }
 
 - (void)setSlImage:(UIImage *)slImage
@@ -144,8 +159,10 @@
 {
     _slHeight = slHeight;
     if (_slHeight >= 2 && _slHeight <= 20) {
+
         _preSliderView.frame = CGRectMake(0, 0, _baseView.bounds.size.width, _slHeight);
         _preSliderView.center = _baseView.center;
+        
     }
 }
 
@@ -159,16 +176,21 @@
 {
     _lastBackgroundColor = lastBackgroundColor;
     _lastSliderView.backgroundColor = _lastBackgroundColor;
-
+    
 }
 
 - (void)setWidthSameHeight:(CGFloat)widthSameHeight
 {
     _widthSameHeight = widthSameHeight;
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.bounds.size.width, widthSameHeight * 2);
+    _baseView.frame = CGRectMake(0, 0, _baseView.bounds.size.width, widthSameHeight * 2);
+    _preSliderView.center = _baseView.center;
     _sliderBtn.frame = CGRectMake(0, 0, _widthSameHeight, _widthSameHeight);
     _sliderBtn.center = CGPointMake(_value * _baseView.bounds.size.width,  _baseView.center.y);
     _sliderBtn.layer.cornerRadius = _widthSameHeight / 2;
-
+    _expandBtn.frame = CGRectMake(0, 0, _widthSameHeight * 2, _widthSameHeight * 2);
+    _expandBtn.center = _sliderBtn.center;
+    
 }
 
 - (void)setSliderBackgroundColor:(UIColor *)sliderBackgroundColor
@@ -177,11 +199,11 @@
     _sliderBtn.backgroundColor = _sliderBackgroundColor;
 }
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end

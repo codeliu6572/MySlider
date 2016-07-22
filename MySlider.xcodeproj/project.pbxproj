@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DCD56D71C721E7BE4B1B93D /* libPods-MySliderUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD1A1C7EEF6AEF924D787A6 /* libPods-MySliderUITests.a */; };
 		686AAFEA1D40B5A300BC8053 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 686AAFE91D40B5A300BC8053 /* main.m */; };
 		686AAFED1D40B5A300BC8053 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 686AAFEC1D40B5A300BC8053 /* AppDelegate.m */; };
 		686AAFF01D40B5A300BC8053 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 686AAFEF1D40B5A300BC8053 /* ViewController.m */; };
@@ -15,6 +16,9 @@
 		686AAFF81D40B5A300BC8053 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 686AAFF61D40B5A300BC8053 /* LaunchScreen.storyboard */; };
 		686AB0031D40B5A300BC8053 /* MySliderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 686AB0021D40B5A300BC8053 /* MySliderTests.m */; };
 		686AB00E1D40B5A300BC8053 /* MySliderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 686AB00D1D40B5A300BC8053 /* MySliderUITests.m */; };
+		686AB01E1D40BF7300BC8053 /* MySlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 686AB01D1D40BF7300BC8053 /* MySlider.m */; };
+		CDD6E939D912C51B5A6977A3 /* libPods-MySliderTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54FF17A9E60AB15F00457025 /* libPods-MySliderTests.a */; };
+		FA0A7690D9724F0594DCB581 /* libPods-MySlider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 018420902E3626FE94803E6A /* libPods-MySlider.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		018420902E3626FE94803E6A /* libPods-MySlider.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MySlider.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		54FF17A9E60AB15F00457025 /* libPods-MySliderTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MySliderTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		581514B96C472D6BDB38DF97 /* Pods-MySliderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySliderUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySliderUITests/Pods-MySliderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		686AAFE51D40B5A300BC8053 /* MySlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		686AAFE91D40B5A300BC8053 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		686AAFEB1D40B5A300BC8053 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +58,15 @@
 		686AB0091D40B5A300BC8053 /* MySliderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MySliderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		686AB00D1D40B5A300BC8053 /* MySliderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySliderUITests.m; sourceTree = "<group>"; };
 		686AB00F1D40B5A400BC8053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		686AB01B1D40BEA300BC8053 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		686AB01C1D40BF7300BC8053 /* MySlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySlider.h; sourceTree = "<group>"; };
+		686AB01D1D40BF7300BC8053 /* MySlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySlider.m; sourceTree = "<group>"; };
+		6C6A18FD9F482BC8CD7D8441 /* Pods-MySliderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySliderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySliderTests/Pods-MySliderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		71D5B7A86AE041ADB8C66E1B /* Pods-MySliderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySliderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySliderTests/Pods-MySliderTests.release.xcconfig"; sourceTree = "<group>"; };
+		B42131466AE6FE42B40450B5 /* Pods-MySlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySlider.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySlider/Pods-MySlider.debug.xcconfig"; sourceTree = "<group>"; };
+		E0124F94D6F19EB0CCD728B9 /* Pods-MySlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySlider.release.xcconfig"; path = "Pods/Target Support Files/Pods-MySlider/Pods-MySlider.release.xcconfig"; sourceTree = "<group>"; };
+		F7BD18E12A99A9762F744A70 /* Pods-MySliderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MySliderUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MySliderUITests/Pods-MySliderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FFD1A1C7EEF6AEF924D787A6 /* libPods-MySliderUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MySliderUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA0A7690D9724F0594DCB581 /* libPods-MySlider.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD6E939D912C51B5A6977A3 /* libPods-MySliderTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +90,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DCD56D71C721E7BE4B1B93D /* libPods-MySliderUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01F9A6765BEAF3569533A5F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				018420902E3626FE94803E6A /* libPods-MySlider.a */,
+				54FF17A9E60AB15F00457025 /* libPods-MySliderTests.a */,
+				FFD1A1C7EEF6AEF924D787A6 /* libPods-MySliderUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		686AAFDC1D40B5A300BC8053 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +114,8 @@
 				686AB0011D40B5A300BC8053 /* MySliderTests */,
 				686AB00C1D40B5A300BC8053 /* MySliderUITests */,
 				686AAFE61D40B5A300BC8053 /* Products */,
+				E0D6FEA31237EB532C3EA8B2 /* Pods */,
+				01F9A6765BEAF3569533A5F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +136,9 @@
 				686AAFEC1D40B5A300BC8053 /* AppDelegate.m */,
 				686AAFEE1D40B5A300BC8053 /* ViewController.h */,
 				686AAFEF1D40B5A300BC8053 /* ViewController.m */,
+				686AB01C1D40BF7300BC8053 /* MySlider.h */,
+				686AB01D1D40BF7300BC8053 /* MySlider.m */,
+				686AB01B1D40BEA300BC8053 /* PrefixHeader.pch */,
 				686AAFF11D40B5A300BC8053 /* Main.storyboard */,
 				686AAFF41D40B5A300BC8053 /* Assets.xcassets */,
 				686AAFF61D40B5A300BC8053 /* LaunchScreen.storyboard */,
@@ -140,6 +174,19 @@
 			path = MySliderUITests;
 			sourceTree = "<group>";
 		};
+		E0D6FEA31237EB532C3EA8B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B42131466AE6FE42B40450B5 /* Pods-MySlider.debug.xcconfig */,
+				E0124F94D6F19EB0CCD728B9 /* Pods-MySlider.release.xcconfig */,
+				6C6A18FD9F482BC8CD7D8441 /* Pods-MySliderTests.debug.xcconfig */,
+				71D5B7A86AE041ADB8C66E1B /* Pods-MySliderTests.release.xcconfig */,
+				F7BD18E12A99A9762F744A70 /* Pods-MySliderUITests.debug.xcconfig */,
+				581514B96C472D6BDB38DF97 /* Pods-MySliderUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +194,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 686AB0121D40B5A400BC8053 /* Build configuration list for PBXNativeTarget "MySlider" */;
 			buildPhases = (
+				5B0F42C8E80B5C0611893BED /* [CP] Check Pods Manifest.lock */,
 				686AAFE11D40B5A300BC8053 /* Sources */,
 				686AAFE21D40B5A300BC8053 /* Frameworks */,
 				686AAFE31D40B5A300BC8053 /* Resources */,
+				465909BDF622C22A0C6421DF /* [CP] Embed Pods Frameworks */,
+				8F0DE69C4C38EF70CA3344B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,9 +214,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 686AB0151D40B5A400BC8053 /* Build configuration list for PBXNativeTarget "MySliderTests" */;
 			buildPhases = (
+				A74CC2C2CFF7039C7D6AFBCF /* [CP] Check Pods Manifest.lock */,
 				686AAFFA1D40B5A300BC8053 /* Sources */,
 				686AAFFB1D40B5A300BC8053 /* Frameworks */,
 				686AAFFC1D40B5A300BC8053 /* Resources */,
+				C819F8F96475DEE521C9D027 /* [CP] Embed Pods Frameworks */,
+				EAA1755681DA6285A3400A36 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,9 +235,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 686AB0181D40B5A400BC8053 /* Build configuration list for PBXNativeTarget "MySliderUITests" */;
 			buildPhases = (
+				A10419EDCCA6E9DD897C1CB1 /* [CP] Check Pods Manifest.lock */,
 				686AB0051D40B5A300BC8053 /* Sources */,
 				686AB0061D40B5A300BC8053 /* Frameworks */,
 				686AB0071D40B5A300BC8053 /* Resources */,
+				9F9AFD01E0B509E352E8D82A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,6 +320,129 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		465909BDF622C22A0C6421DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MySlider/Pods-MySlider-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B0F42C8E80B5C0611893BED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8F0DE69C4C38EF70CA3344B0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MySlider/Pods-MySlider-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F9AFD01E0B509E352E8D82A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MySliderUITests/Pods-MySliderUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A10419EDCCA6E9DD897C1CB1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A74CC2C2CFF7039C7D6AFBCF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C819F8F96475DEE521C9D027 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MySliderTests/Pods-MySliderTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EAA1755681DA6285A3400A36 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MySliderTests/Pods-MySliderTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		686AAFE11D40B5A300BC8053 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -272,6 +450,7 @@
 			files = (
 				686AAFF01D40B5A300BC8053 /* ViewController.m in Sources */,
 				686AAFED1D40B5A300BC8053 /* AppDelegate.m in Sources */,
+				686AB01E1D40BF7300BC8053 /* MySlider.m in Sources */,
 				686AAFEA1D40B5A300BC8053 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,8 +590,10 @@
 		};
 		686AB0131D40B5A400BC8053 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B42131466AE6FE42B40450B5 /* Pods-MySlider.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = MySlider/PrefixHeader.pch;
 				INFOPLIST_FILE = MySlider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Codeliu.Fire.MySlider;
@@ -422,8 +603,10 @@
 		};
 		686AB0141D40B5A400BC8053 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0124F94D6F19EB0CCD728B9 /* Pods-MySlider.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = MySlider/PrefixHeader.pch;
 				INFOPLIST_FILE = MySlider/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Codeliu.Fire.MySlider;
@@ -433,6 +616,7 @@
 		};
 		686AB0161D40B5A400BC8053 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C6A18FD9F482BC8CD7D8441 /* Pods-MySliderTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MySliderTests/Info.plist;
@@ -445,6 +629,7 @@
 		};
 		686AB0171D40B5A400BC8053 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71D5B7A86AE041ADB8C66E1B /* Pods-MySliderTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MySliderTests/Info.plist;
@@ -457,6 +642,7 @@
 		};
 		686AB0191D40B5A400BC8053 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7BD18E12A99A9762F744A70 /* Pods-MySliderUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = MySliderUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -468,6 +654,7 @@
 		};
 		686AB01A1D40B5A400BC8053 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 581514B96C472D6BDB38DF97 /* Pods-MySliderUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = MySliderUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -496,6 +683,7 @@
 				686AB0141D40B5A400BC8053 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		686AB0151D40B5A400BC8053 /* Build configuration list for PBXNativeTarget "MySliderTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +692,7 @@
 				686AB0171D40B5A400BC8053 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		686AB0181D40B5A400BC8053 /* Build configuration list for PBXNativeTarget "MySliderUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +701,7 @@
 				686AB01A1D40B5A400BC8053 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

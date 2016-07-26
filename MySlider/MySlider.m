@@ -12,7 +12,12 @@
 
 
 @interface MySlider()
-
+{
+    UIView *lastView;
+    CGFloat currentX;
+    CGPoint clickCenter;
+    NSString *type;
+}
 
 
 @property(nonatomic,strong)UIView *baseView;
@@ -33,37 +38,39 @@
  */
 @property(nonatomic,strong)UIButton *expandBtn;
 
+    
+
 @end
 
 @implementation MySlider
 
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, 50)];
-    if (self) {
-        _value = 0;
-        _widthSameHeight = 25;
-        [self setSlierUI];
-    }
+- (id)init {
+    self = [super init];
+    if (!self) return nil;
+//    _widthSameHeight = 25;
+//    _slHeight = 15;
+//    _value = 0.5;
+    [self setSlierUI];
     return self;
 }
 
 - (void)setSlierUI
 {
-    _baseView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+    
+    lastView = self;
+    lastView.backgroundColor = [UIColor redColor];
+    _baseView = [[UIView alloc]init];
     [self addSubview:_baseView];
     
-    _preSliderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 20)];
-    _preSliderView.center = _baseView.center;
+    _preSliderView = [[UIView alloc]init];
     _preSliderView.layer.cornerRadius = 10;
     _preSliderView.backgroundColor = [UIColor grayColor];
     _preSliderView.clipsToBounds = YES;
     [_baseView addSubview:_preSliderView];
     
     
-    
-    _lastSliderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 20)];
+    _lastSliderView = [[UIView alloc]init];
     _lastSliderView.backgroundColor = [UIColor blueColor];
     [_preSliderView addSubview:_lastSliderView];
     
@@ -72,8 +79,6 @@
     
     
     _sliderBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _sliderBtn.frame = CGRectMake(0, 0, _widthSameHeight, _widthSameHeight);
-    _sliderBtn.center = CGPointMake(0, _baseView.center.y);
     _sliderBtn.backgroundColor = [UIColor lightGrayColor];
     if (_slImage == nil) {
         _sliderBtn.layer.borderWidth = 0.5;
@@ -91,10 +96,42 @@
     [_baseView addSubview:_sliderBtn];
     
     _expandBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-    _expandBtn.frame = CGRectMake(0, 0, _widthSameHeight * 2, _widthSameHeight * 2);
     _expandBtn.center = _sliderBtn.center;
     [_expandBtn addTarget:self action:@selector(dragMoving:withEvent:)forControlEvents: UIControlEventTouchDragInside];
     [_baseView addSubview:_expandBtn];
+    
+    
+    [_baseView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.top.and.right.and.bottom.equalTo(lastView);
+    }];
+    
+    [_preSliderView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.right.equalTo(lastView);
+        make.center.equalTo(lastView);
+        make.height.mas_equalTo(_slHeight);
+        make.width.equalTo(lastView.mas_width);
+    }];
+    
+    
+    [_lastSliderView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.top.and.bottom.equalTo(_preSliderView);
+        make.height.equalTo(_preSliderView.mas_height);
+        make.width.equalTo(_preSliderView.mas_width).multipliedBy(0.5);
+        make.centerY.equalTo(_preSliderView.mas_centerY);
+    }];
+    
+    [_sliderBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_lastSliderView);
+        make.width.and.height.mas_equalTo(20);
+        make.left.equalTo(_lastSliderView.mas_right).offset(-20 / 2);
+    }];
+
+    
+    [_expandBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_lastSliderView);
+        make.left.equalTo(_lastSliderView).offset(-20);
+        make.width.and.height.mas_equalTo(20 * 2);
+    }];
     
     
     
@@ -102,41 +139,117 @@
 - (void)tapMoving:(UITapGestureRecognizer *)tap
 {
     CGPoint point = [tap locationInView:_preSliderView];
-    _sliderBtn.center = CGPointMake(point.x , _baseView.center.y);
-    _lastSliderView.frame = CGRectMake(0, 0, point.x, 20);
-    _value = point.x / _preSliderView.bounds.size.width;
+    currentX = point.x;
+    type = @"tap";
+    // 告诉self.view约束需要更新
+    [self setNeedsUpdateConstraints];
+    // 调用此方法告诉self.view检测是否需要更新约束，若需要则更新，下面添加动画效果才起作用
+    [self updateConstraintsIfNeeded];
+    
+    [self layoutIfNeeded];
+
+
     
 }
+
+
+- (void)updateConstraints
+{
+
+    
+    if ([type isEqualToString:@"nottap"]) {
+      
+        
+        [_preSliderView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.and.right.equalTo(lastView);
+            make.center.equalTo(lastView);
+            make.height.mas_equalTo(_slHeight);
+            make.width.equalTo(lastView.mas_width);
+        }];
+        
+        [_lastSliderView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.and.top.and.bottom.equalTo(_preSliderView);
+            make.height.equalTo(_preSliderView.mas_height);
+            make.width.equalTo(_preSliderView.mas_width).multipliedBy(_value);
+            make.centerY.equalTo(_preSliderView.mas_centerY);
+        }];
+        
+        [_sliderBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(_lastSliderView);
+            make.width.and.height.mas_equalTo(_widthSameHeight);
+            make.left.equalTo(_lastSliderView.mas_right).offset(-_widthSameHeight / 2);
+        }];
+        
+        
+        [_expandBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(_lastSliderView);
+            make.width.height.mas_equalTo(_widthSameHeight * 2);
+            make.left.equalTo(_lastSliderView.mas_right).offset(-_widthSameHeight);
+            
+        }];
+    }
+    if ([type isEqualToString:@"tap"]) {
+        [_lastSliderView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.and.top.and.bottom.equalTo(_preSliderView);
+            make.height.equalTo(_preSliderView.mas_height);
+            make.width.mas_equalTo(currentX);
+            make.centerY.equalTo(_preSliderView.mas_centerY);
+        }];
+        
+        [_sliderBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(_lastSliderView);
+            make.width.and.height.mas_equalTo(_widthSameHeight);
+            make.left.mas_equalTo(currentX - _widthSameHeight / 2);
+        }];
+        
+        
+        [_expandBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.equalTo(_lastSliderView);
+            make.width.and.height.mas_equalTo(_widthSameHeight * 2);
+            make.left.mas_equalTo(currentX - _widthSameHeight * 2 / 2);
+            
+        }];
+    }
+
+
+
+
+    
+    [super updateConstraints];
+}
+
 - (void)dragMoving: (UIButton *)btn withEvent:(UIEvent *)event
 {
     CGPoint point = [[[event allTouches] anyObject] locationInView:self];
     
     CGFloat x = point.x;
     
-    if(x<=0)
+    if(x <= _widthSameHeight / 2)
         
     {
-        point.x = 0;
+        point.x = _widthSameHeight / 2;
     }
     
-    if(x >= self.bounds.size.width)
+    if(x >= self.bounds.size.width - _widthSameHeight / 2)
         
     {
         
-        point.x = self.bounds.size.width;
+        point.x = self.bounds.size.width - _widthSameHeight / 2;
         
     }
     
     point.y = self.frame.size.height / 2;
     
+    currentX = point.x;
     
-    btn.center = point;
+    type = @"tap";
     
-    _lastSliderView.frame = CGRectMake(0, 0, point.x, 20);
-    _value = point.x / _preSliderView.bounds.size.width;
+    // 告诉self.view约束需要更新
+    [self setNeedsUpdateConstraints];
+    // 调用此方法告诉self.view检测是否需要更新约束，若需要则更新，下面添加动画效果才起作用
+    [self updateConstraintsIfNeeded];
     
-    _sliderBtn.center = point;
-    _expandBtn.center = _sliderBtn.center;
+    [self layoutIfNeeded];
     
 }
 
@@ -144,9 +257,17 @@
 - (void)setValue:(CGFloat)value
 {
     _value = value;
-    _sliderBtn.center = CGPointMake(_value * _baseView.bounds.size.width , _baseView.center.y);
-    _lastSliderView.frame = CGRectMake(0, 0, _sliderBtn.center.x, 20);
+    type = @"nottap";
     
+    // 告诉self.view约束需要更新
+    [self setNeedsUpdateConstraints];
+    // 调用此方法告诉self.view检测是否需要更新约束，若需要则更新，下面添加动画效果才起作用
+    [self updateConstraintsIfNeeded];
+    
+    [self layoutIfNeeded];
+
+    
+     
 }
 
 - (void)setSlImage:(UIImage *)slImage
@@ -159,9 +280,14 @@
 {
     _slHeight = slHeight;
     if (_slHeight >= 2 && _slHeight <= 20) {
-
-        _preSliderView.frame = CGRectMake(0, 0, _baseView.bounds.size.width, _slHeight);
-        _preSliderView.center = _baseView.center;
+        type = @"nottap";
+        // 告诉self.view约束需要更新
+        [self setNeedsUpdateConstraints];
+        // 调用此方法告诉self.view检测是否需要更新约束，若需要则更新，下面添加动画效果才起作用
+        [self updateConstraintsIfNeeded];
+        
+        [self layoutIfNeeded];
+        
         
     }
 }
@@ -182,14 +308,19 @@
 - (void)setWidthSameHeight:(CGFloat)widthSameHeight
 {
     _widthSameHeight = widthSameHeight;
-    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.bounds.size.width, widthSameHeight * 2);
-    _baseView.frame = CGRectMake(0, 0, _baseView.bounds.size.width, widthSameHeight * 2);
-    _preSliderView.center = _baseView.center;
-    _sliderBtn.frame = CGRectMake(0, 0, _widthSameHeight, _widthSameHeight);
-    _sliderBtn.center = CGPointMake(_value * _baseView.bounds.size.width,  _baseView.center.y);
+    
+    type = @"nottap";
+    
     _sliderBtn.layer.cornerRadius = _widthSameHeight / 2;
-    _expandBtn.frame = CGRectMake(0, 0, _widthSameHeight * 2, _widthSameHeight * 2);
-    _expandBtn.center = _sliderBtn.center;
+
+    
+    // 告诉self.view约束需要更新
+    [self setNeedsUpdateConstraints];
+    // 调用此方法告诉self.view检测是否需要更新约束，若需要则更新，下面添加动画效果才起作用
+    [self updateConstraintsIfNeeded];
+    
+    [self layoutIfNeeded];
+    
     
 }
 
